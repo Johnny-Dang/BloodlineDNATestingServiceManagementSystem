@@ -21,9 +21,11 @@ namespace DAL.Repositories
             return _db.Feedbacks.Include(f => f.Booking).ToList();
         }
 
-        public Feedback? GetById(int id)
+        public List<Feedback> Search(string searchText)
         {
-            return _db.Feedbacks.Include(f => f.Booking).FirstOrDefault(f => f.FeedbackId == id);
+            return _db.Feedbacks
+                .Where(f => f.Comments.ToLower().Contains(searchText.ToLower()) || f.Answers.ToLower().Contains(searchText.ToLower()))
+                .ToList();
         }
 
         public void Add(Feedback feedback)

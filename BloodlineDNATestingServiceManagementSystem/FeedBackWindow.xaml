@@ -84,6 +84,11 @@
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Orientation="Horizontal">
+
+            <TextBox x:Name="txtSearch" Width="250" />
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"/>
+        </StackPanel>
 
         <!-- Inputs -->
         <StackPanel Orientation="Horizontal" Margin="0,5">

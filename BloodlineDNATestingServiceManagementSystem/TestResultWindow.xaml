@@ -88,6 +88,12 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <StackPanel Orientation="Horizontal">
+
+            <TextBox x:Name="txtSearch" Width="250" />
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"/>
+        </StackPanel>
+
         <!-- Input Fields -->
         <StackPanel Orientation="Horizontal">
             <Label Content="BookingId"/>

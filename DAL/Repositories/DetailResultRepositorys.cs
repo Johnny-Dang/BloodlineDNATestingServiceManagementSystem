@@ -22,11 +22,10 @@ namespace DAL.Repositories
             return _db.DetailResults.Include(dr => dr.TestResult).ToList();
         }
 
-        public List<DetailResult> GetByTestResultId(int testResultId)
+        public List<DetailResult> Search(string searchText)
         {
-            return _db.DetailResults.Where(dr => dr.TestResultId == testResultId).ToList();
+            return _db.DetailResults.Where(x => x.LocusName.ToLower().Contains(searchText.ToLower())).ToList();
         }
-
         public void Add(DetailResult detailResult)
         {
             _db.DetailResults.Add(detailResult);

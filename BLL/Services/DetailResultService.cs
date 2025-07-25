@@ -19,9 +19,7 @@ namespace BLL.Services
 
         public List<DetailResult> GetAll() => _repo.GetAll();
 
-        public List<DetailResult> GetByTestResultId(int testResultId)
-            => _repo.GetByTestResultId(testResultId);
-
+        public List<DetailResult> Search(string searchText) => _repo.Search(searchText);
         public void Add(DetailResult detail) => _repo.Add(detail);
 
         public void Update(DetailResult detail) => _repo.Update(detail);

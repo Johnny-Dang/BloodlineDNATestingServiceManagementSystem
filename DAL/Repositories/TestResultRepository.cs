@@ -18,7 +18,13 @@ namespace DAL.Repositories
         }
         public List<TestResult> GetAll() => _db.TestResults.Include(t => t.Booking).ToList();
 
-
+        public List<TestResult> Search(string searchText)
+        {
+            return _db.TestResults
+                .Where(x => x.ResultConclution.Contains(searchText.ToLower()) ||
+                            x.ResultFile.Contains(searchText.ToLower()))
+                .ToList();
+        }
         public void Add(TestResult result)
         {
             _db.TestResults.Add(result);
@@ -32,10 +38,10 @@ namespace DAL.Repositories
                 formDB.BookingId = result.BookingId;
                 formDB.ResultDate = result.ResultDate;
                 formDB.CreatedBy = result.CreatedBy;
-                formDB.CreatedDate = result.CreatedDate;    
+                formDB.CreatedDate = result.CreatedDate;
                 formDB.ResultConclution = result.ResultConclution;
                 formDB.ResultFile = result.ResultFile;
-                formDB.UpdatedBy = result.UpdatedBy;    
+                formDB.UpdatedBy = result.UpdatedBy;
                 formDB.UpdatedDate = result.UpdatedDate;
 
                 _db.TestResults.Update(formDB);

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:BloodlineDNATestingServiceManagementSystem"
         mc:Ignorable="d"
         Title="Detail Result Management" Height="600" Width="1000"
-        Background="#f4f6f8" WindowStartupLocation="CenterScreen">
+        Background="#f4f6f8" WindowStartupLocation="CenterScreen"
+    >
     <Window.Resources>
         <!-- Button Style -->
         <Style TargetType="Button">
@@ -84,6 +85,12 @@
                 <DataGridTextColumn Header="Paternity Index" Binding="{Binding PaternityIndex}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Orientation="Horizontal">
+
+            <TextBox x:Name="txtSearch" Width="250" />
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"/>
+        </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="0,5">
             <Label Content="ResultConclution"/>

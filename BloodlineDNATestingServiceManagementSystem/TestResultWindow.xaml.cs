@@ -203,6 +203,12 @@ namespace BloodlineDNATestingServiceManagementSystem
             feedbackWindow.Show();
             this.Close();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = txtSearch.Text;
+            dgTestResult.ItemsSource = _testResultService.Search(searchText);
+        }
     }
 }
         

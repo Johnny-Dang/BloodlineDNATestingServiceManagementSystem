@@ -21,6 +21,10 @@ namespace BLL.Services
         {
             return _repo.GetAll();
         }
+        public List<TestResult> Search(string searchText)
+        {
+            return _repo.Search(searchText);
+        }
         public void Add(TestResult result)
         {
             _repo.Add(result);

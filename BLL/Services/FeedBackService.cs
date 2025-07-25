@@ -21,9 +21,9 @@ namespace BLL.Services
             return _repo.GetAll();
         }
 
-        public Feedback? GetById(int id)
+        public List<Feedback> Search(string searchText)
         {
-            return _repo.GetById(id);
+            return _repo.Search(searchText);
         }
 
         public void Add(Feedback feedback)

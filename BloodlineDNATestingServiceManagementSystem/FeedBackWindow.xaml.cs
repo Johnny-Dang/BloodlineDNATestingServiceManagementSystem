@@ -173,7 +173,13 @@ namespace BloodlineDNATestingServiceManagementSystem
         {
             DetailResultWindow detailResultWindow = new DetailResultWindow();
             detailResultWindow.Show();
-            this.Close();
+            this.Close();   
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = txtSearch.Text;
+            dgFeedback.ItemsSource = _feedbackService.Search(searchText);
         }
     }
 }
