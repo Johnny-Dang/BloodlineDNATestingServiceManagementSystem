@@ -1,0 +1,136 @@
+﻿<Window x:Class="BloodlineDNATestingServiceManagementSystem.TestResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodlineDNATestingServiceManagementSystem"
+        mc:Ignorable="d"
+        Title="Quản lý Kết quả Xét nghiệm"
+        Height="600" Width="1000"
+        Background="#f4f6f8" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#6B705C"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="6,3"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#A5A58D"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#B7B7A4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- TextBox Style -->
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="BorderBrush" Value="#B7B7A4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- ComboBox Style -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="BorderBrush" Value="#B7B7A4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- DataGrid Style -->
+        <Style TargetType="DataGrid">
+            <Setter Property="BorderBrush" Value="#B7B7A4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="White"/>
+            <Setter Property="AlternatingRowBackground" Value="#f0f0f0"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#D8D8D8"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#D8D8D8"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="10">
+
+        <TextBlock Text="📄 Test Result Management" FontSize="20" FontWeight="Bold" Foreground="#6B705C" Margin="0,0,0,10"/>
+
+        <DataGrid x:Name="dgTestResult" AutoGenerateColumns="False" CanUserAddRows="False"
+                  SelectionMode="Single" Height="250" Margin="0,0,0,10"
+                  RowBackground="White" AlternatingRowBackground="#f0f0f0" SelectionChanged="dgTestResult_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding TestResultId}" Width="100"/>
+                <DataGridTextColumn Header="BookingId" Binding="{Binding Booking.BookingId}" Width="100"/>
+                <DataGridTextColumn Header="Conclusion" Binding="{Binding ResultConclution}" Width="200"/>
+                <DataGridTextColumn Header="Result Date" Binding="{Binding ResultDate, StringFormat='dd/MM/yyyy'}" Width="120"/>
+                <DataGridTextColumn Header="File" Binding="{Binding ResultFile}" Width="180"/>
+                <DataGridTextColumn Header="Created By" Binding="{Binding CreatedBy}" Width="180"/>
+                <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate, StringFormat='dd/MM/yyyy'}" Width="180"/>
+                <DataGridTextColumn Header="Updated By" Binding="{Binding UpdatedBy}" Width="180"/>
+                <DataGridTextColumn Header="Updated Date" Binding="{Binding UpdatedDate, StringFormat='dd/MM/yyyy'}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal">
+
+            <TextBox x:Name="txtSearch" Width="250" />
+            <Button x:Name="btnSearch" Content="Search" Click="btnSearch_Click"/>
+        </StackPanel>
+
+        <!-- Input Fields -->
+        <StackPanel Orientation="Horizontal">
+            <Label Content="BookingId"/>
+            <ComboBox x:Name="cbxBookingId" Width="130"/>
+            <Label Content="Conclusion"/>
+            <TextBox x:Name="txtResultConclution" Width="300"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Result Date"/>
+            <TextBox x:Name="txtResultDate" Width="140" Margin="5"/>
+            <Label Content="Result File"/>
+            <TextBox x:Name="txtResultFile" Width="200"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Created By"/>
+            <TextBox x:Name="txtCreatedBy" Width="150"/>
+            <Label Content="Created Date"/>
+            <TextBox x:Name="txtCreatedDate" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            
+            <Label Content="Updated By"/>
+            <TextBox x:Name="txtUpdatedBy" Width="150"/>
+            <Label Content="Updated Date"/>
+            <TextBox x:Name="txtUpdatedDate" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+            <Button Name="btnCreate" Content="Create" Click="btnCreate_Click" Margin="5" />
+            <Button Name="btnUpdate" Content="Update" Click="btnUpdate_Click" Margin="5"/>
+            <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="5"/>
+            <Button Name="btnDetailResult" Content="Detail Result" Click="btnDetailResult_Click" Margin="5"/>
+            <Button Name="btnFeedback" Content="Feedback" Margin="5" Click="btnFeedback_Click"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>
