@@ -44,6 +44,7 @@
                 <TextBlock Text="Menu" FontSize="22" FontWeight="Bold" Foreground="#FF6B705C" Margin="10"/>
                 <Button x:Name="btnBooking" Content="Quản lý đặt lịch" Click="SidebarButton_Click"/>
                 <Button x:Name="btnConsultation" Content="Quản lý tư vấn" Click="SidebarButton_Click"/>
+                <Button x:Name="btnSampleAndParticipant" Content="Quản lý Mẫu vật và Người tham gia" Click="SidebarButton_Click"/>
                 <Button x:Name="btnTestResult" Content="Kết quả xét nghiệm" Click="NavigationButton_Click"/>
                 <Button x:Name="btnDetailResult" Content="Chi tiết kết quả" Click="NavigationButton_Click"/>
                 <Button x:Name="btnFeedback" Content="Phản hồi" Click="NavigationButton_Click"/>
