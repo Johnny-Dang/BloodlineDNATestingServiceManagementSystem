@@ -12,6 +12,11 @@ namespace DAL.Repositories
         {
             _context = new DnatestingServiceContext();  
         }
+
+        public ServiceRepository(DnatestingServiceContext context)
+        {
+            _context = context;
+        }
         
         public List<Service> GetAll()
         {
@@ -21,6 +26,28 @@ namespace DAL.Repositories
         public Service GetById(int id)
         {
             return _context.Services.Find(id);
+        }
+
+        public void Add(Service service)
+        {
+            _context.Services.Add(service);
+            _context.SaveChanges();
+        }
+
+        public void Update(Service service)
+        {
+            _context.Services.Update(service);
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var entity = _context.Services.Find(id);
+            if (entity != null)
+            {
+                _context.Services.Remove(entity);
+                _context.SaveChanges();
+            }
         }
     }
 }

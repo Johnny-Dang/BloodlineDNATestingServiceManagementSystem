@@ -55,6 +55,8 @@
                     <TabItem x:Name="tabBooking" Header="Quản lý đặt lịch">
                         <controls:BookingControl />
                     </TabItem>
+                    <TabItem x:Name="tabServiceAndSurcharge" Header="Quản lý Dịch vụ &amp; Phụ phí" Visibility="Collapsed" />
+                    <TabItem x:Name="tabCustomerDashboard" Header="Dashboard Khách hàng" Visibility="Collapsed" />
                 </TabControl>
             </Grid>
         </DockPanel>

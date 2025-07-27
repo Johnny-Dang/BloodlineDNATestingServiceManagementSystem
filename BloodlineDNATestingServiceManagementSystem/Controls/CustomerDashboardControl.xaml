@@ -1,0 +1,40 @@
+<UserControl x:Class="BloodlineDNATestingServiceManagementSystem.Controls.CustomerDashboardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:BloodlineDNATestingServiceManagementSystem.Controls"
+             mc:Ignorable="d"
+             Height="Auto" Width="Auto" FontFamily="Segoe UI">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Tổng quan khách hàng" FontWeight="Bold" FontSize="20" Grid.Row="0"/>
+        <TextBlock Text="Lịch sử đặt lịch" FontWeight="Bold" FontSize="16" Margin="0,10,0,5" Grid.Row="1"/>
+        <DataGrid ItemsSource="{Binding Bookings}" AutoGenerateColumns="False" Height="200" Grid.Row="2" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding BookingId}" Width="50"/>
+                <DataGridTextColumn Header="Dịch vụ" Binding="{Binding Service.ServiceName}" Width="200"/>
+                <DataGridTextColumn Header="Ngày đặt" Binding="{Binding BookingDate}" Width="120"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding Status}" Width="120"/>
+                <DataGridTextColumn Header="Tổng tiền" Binding="{Binding TotalPrice}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="Thông báo / Tin tức" FontWeight="Bold" FontSize="16" Margin="0,0,0,5" Grid.Row="3"/>
+        <ListBox ItemsSource="{Binding BlogPosts}" Grid.Row="4" Height="110">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="{Binding Content}" TextWrapping="Wrap" FontSize="12"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl> 
