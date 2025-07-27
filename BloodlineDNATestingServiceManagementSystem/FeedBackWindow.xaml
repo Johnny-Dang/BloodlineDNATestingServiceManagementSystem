@@ -121,6 +121,7 @@
             <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="5"/>
             <Button Name="btnTestResult" Content="Test Result" Margin="5" Click="btnTestResult_Click"/>
             <Button Name="btnDetailResult" Content="Detail Result" Margin="5" Click="btnDetailResult_Click"/>
+            <Button Name="btnBackToMain" Content="Back to Main Page" Margin="5" Click="btnBackToMain_Click"/>
         </StackPanel>
     </StackPanel>
 </Window>

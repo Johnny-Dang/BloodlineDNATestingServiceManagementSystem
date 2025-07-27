@@ -130,6 +130,7 @@
             <Button Name="btnDelete" Content="Delete" Click="btnDelete_Click" Margin="5"/>
             <Button Name="btnDetailResult" Content="Detail Result" Click="btnDetailResult_Click" Margin="5"/>
             <Button Name="btnFeedback" Content="Feedback" Margin="5" Click="btnFeedback_Click"/>
+            <Button Name="btnBackToMain" Content="Back to Main Page" Margin="5" Click="btnBackToMain_Click"/>
         </StackPanel>
 
     </StackPanel>

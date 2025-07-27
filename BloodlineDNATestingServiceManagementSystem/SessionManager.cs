@@ -1,4 +1,9 @@
-public static class SessionManager
+using DAL.Entities;
+
+namespace BloodlineDNATestingServiceManagementSystem
 {
-    public static DAL.Entities.User? CurrentUser { get; set; }
+    public static class SessionManager
+    {
+        public static User CurrentUser { get; set; }
+    }
 }

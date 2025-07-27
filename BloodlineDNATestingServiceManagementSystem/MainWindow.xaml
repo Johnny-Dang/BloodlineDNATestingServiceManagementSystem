@@ -1,6 +1,7 @@
 ﻿<Window x:Class="BloodlineDNATestingServiceManagementSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:BloodlineDNATestingServiceManagementSystem.Controls"
         Title="DNA Testing Service Management" Height="700" Width="1200"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -41,16 +42,21 @@
             <!-- Sidebar -->
             <StackPanel DockPanel.Dock="Left" Width="220" Background="#FFF8EB" VerticalAlignment="Stretch">
                 <TextBlock Text="Menu" FontSize="22" FontWeight="Bold" Foreground="#FF6B705C" Margin="10"/>
-                <Button x:Name="btnBooking" Content="Booking Management" Click="SidebarButton_Click"/>
+                <Button x:Name="btnBooking" Content="Quản lý đặt lịch" Click="SidebarButton_Click"/>
+                <Button x:Name="btnConsultation" Content="Quản lý tư vấn" Click="SidebarButton_Click"/>
+                <Button x:Name="btnTestResult" Content="Kết quả xét nghiệm" Click="NavigationButton_Click"/>
+                <Button x:Name="btnDetailResult" Content="Chi tiết kết quả" Click="NavigationButton_Click"/>
+                <Button x:Name="btnFeedback" Content="Phản hồi" Click="NavigationButton_Click"/>
             </StackPanel>
             <!-- Content Area -->
             <Grid>
                 <TabControl x:Name="MainTabControl" Margin="10">
-                    <TabItem x:Name="tabBooking" Header="Booking Management">
-                        <TextBlock Text="Booking Management Content" Margin="10"/>
+                    <TabItem x:Name="tabBooking" Header="Quản lý đặt lịch">
+                        <controls:BookingControl />
                     </TabItem>
                 </TabControl>
             </Grid>
         </DockPanel>
     </Grid>
 </Window>
+    
