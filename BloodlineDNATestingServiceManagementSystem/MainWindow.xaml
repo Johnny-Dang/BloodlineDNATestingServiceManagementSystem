@@ -17,12 +17,16 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1063*"/>
+            <ColumnDefinition Width="137*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- Header with User Info and Logout -->
-        <Grid Grid.Row="0" Background="#FFB38B82" Height="50">
+        <Grid Grid.Row="0" Background="#FF1E3A8A" Height="50" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -37,16 +41,16 @@
                     Padding="10,2"/>
         </Grid>
         <!-- Main Content Area -->
-        <DockPanel Grid.Row="1">
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
             <!-- Sidebar -->
             <StackPanel DockPanel.Dock="Left" Width="220" Background="#FFF8EB" VerticalAlignment="Stretch">
                 <TextBlock Text="Menu" FontSize="22" FontWeight="Bold" Foreground="#FF6B705C" Margin="10"/>
-                <Button x:Name="btnBooking" Content="Booking Management" Click="SidebarButton_Click"/>
+                <Button x:Name="btnBooking" Content="Booking Management" Background="#FF06B6D4" Click="SidebarButton_Click"/>
             </StackPanel>
             <!-- Content Area -->
             <Grid>
                 <TabControl x:Name="MainTabControl" Margin="10">
-                    <TabItem x:Name="tabBooking" Header="Booking Management">
+                    <TabItem x:Name="tabBooking" Header="Booking Management" Background="#FF1E3A8A">
                         <TextBlock Text="Booking Management Content" Margin="10"/>
                     </TabItem>
                 </TabControl>

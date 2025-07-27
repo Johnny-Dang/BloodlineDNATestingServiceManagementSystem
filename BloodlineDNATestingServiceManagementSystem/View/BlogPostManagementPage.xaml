@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="BloodlineDNATestingServiceManagementSystem.View.BlogPostManagementPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="20">
+        <Border Background="White" CornerRadius="10" Padding="20" BorderBrush="#DDD" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="📰 Quản lý &amp; Xem bài viết"
+                           FontSize="24" FontWeight="Bold"
+                           Foreground="#3E3E3E"
+                           Margin="0,0,0,20"/>
+
+                <!-- Nút thao tác -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,20">
+                    <Button x:Name="BtnAdd" Width="130" Height="40" Click="BtnAdd_Click"
+                            Background="#4CAF50" Foreground="White" Cursor="Hand" BorderThickness="0" Padding="10,5" Margin="0,0,10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="16" Margin="0,0,5,0"/>
+                            <TextBlock Text="Viết bài" FontSize="14" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="BtnEdit" Width="110" Height="40" Click="BtnEdit_Click"
+                            Background="#FFC107" Foreground="Black" Cursor="Hand" BorderThickness="0" Padding="10,5" Margin="0,0,10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE70F;" FontSize="16" Margin="0,0,5,0"/>
+                            <TextBlock Text="Sửa bài" FontSize="14" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="BtnDelete" Width="100" Height="40" Click="BtnDelete_Click"
+                            Background="#F44336" Foreground="White" Cursor="Hand" BorderThickness="0" Padding="10,5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" FontSize="16" Margin="0,0,5,0"/>
+                            <TextBlock Text="Xóa" FontSize="14" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <!-- Danh sách bài viết -->
+                <ListView x:Name="PostsPanel" Height="500" BorderThickness="0" SelectionMode="Single">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,15" Padding="15" Background="#FAFAFA" CornerRadius="8" BorderBrush="#E0E0E0" BorderThickness="1">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}" FontSize="18" FontWeight="Bold" Foreground="#2D2D2D"/>
+                                    <TextBlock Text="{Binding CreatedDate, StringFormat='Ngày đăng: {0:dd/MM/yyyy}'}" FontStyle="Italic" FontSize="12" Foreground="#888" Margin="0,3,0,5"/>
+                                    <TextBlock Text="{Binding Content}" TextTrimming="CharacterEllipsis" MaxHeight="60" Foreground="#333"/>
+                                    <TextBlock Text="{Binding Status}" FontSize="12" FontWeight="Bold">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Status}" Value="Active">
+                                                        <Setter Property="Foreground" Value="Green"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="Draft">
+                                                        <Setter Property="Foreground" Value="Gray"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Status}" Value="Deleted">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

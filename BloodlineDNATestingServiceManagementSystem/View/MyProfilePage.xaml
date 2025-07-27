@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="BloodlineDNATestingServiceManagementSystem.View.MyProfilePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <Grid Margin="30">
+        <Border Background="White" CornerRadius="12" Padding="30" BorderBrush="#DDD" BorderThickness="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+
+                    <!-- Tiêu đề -->
+                    <TextBlock Text="👤 Thông tin cá nhân"
+                               FontSize="26" FontWeight="Bold"
+                               Foreground="#333" Margin="0,0,0,30"/>
+
+                    <!-- Họ tên -->
+                    <TextBlock Text="👤 Họ tên:" FontWeight="SemiBold" Foreground="#444"/>
+                    <TextBox x:Name="txtFullName" Height="32" Margin="0,5,0,15" Background="#FFF8EB"/>
+
+                    <!-- Email -->
+                    <TextBlock Text="📧 Email:" FontWeight="SemiBold" Foreground="#444"/>
+                    <TextBox x:Name="txtEmail" Height="32" Margin="0,5,0,15" Background="#FFF8EB"/>
+
+                    <!-- Số điện thoại -->
+                    <TextBlock Text="📞 Số điện thoại:" FontWeight="SemiBold" Foreground="#444"/>
+                    <TextBox x:Name="txtPhoneNumber" Height="32" Margin="0,5,0,15" Background="#FFF8EB"/>
+
+                    <!-- Ngày sinh -->
+                    <TextBlock Text="🎂 Ngày sinh:" FontWeight="SemiBold" Foreground="#444"/>
+                    <DatePicker x:Name="dpDateOfBirth" Height="32" Margin="0,5,0,15"/>
+
+                    <!-- Giới tính -->
+                    <TextBlock Text="⚧️ Giới tính:" FontWeight="SemiBold" Foreground="#444"/>
+                    <ComboBox x:Name="cbGender" Height="32" Margin="0,5,0,15" Background="#FFF8EB">
+                        <ComboBoxItem Content="Nam"/>
+                        <ComboBoxItem Content="Nữ"/>
+                        <ComboBoxItem Content="Khác"/>
+                    </ComboBox>
+
+                    <!-- Địa chỉ -->
+                    <TextBlock Text="🏠 Địa chỉ:" FontWeight="SemiBold" Foreground="#444"/>
+                    <TextBox x:Name="txtAddress" Height="32" Margin="0,5,0,15" Background="#FFF8EB"/>
+
+                    <!-- Mật khẩu -->
+                    <TextBlock Text="🔑 Mật khẩu:" FontWeight="SemiBold" Foreground="#444"/>
+                    <PasswordBox x:Name="txtPassword" Height="32" Margin="0,5,0,25" Background="#FFF8EB"/>
+
+                    <!-- Vai trò và trạng thái (readonly) -->
+                    <TextBlock Text="🎭 Vai trò:" FontWeight="SemiBold" Foreground="#444"/>
+                    <TextBox x:Name="txtRole" Height="32" Margin="0,5,0,10" IsReadOnly="True"/>
+
+                    <TextBlock Text="🔒 Trạng thái:" FontWeight="SemiBold" Foreground="#444"/>
+                    <TextBox x:Name="txtStatus" Height="32" Margin="0,5,0,30" IsReadOnly="True"/>
+
+                    <!-- Nút -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="✔ Cập nhật"
+                                Width="120" Height="40"
+                                Background="#4CAF50" Foreground="White"
+                                FontWeight="Bold" Margin="0,0,10,0"
+                                Click="BtnUpdate_Click"
+                                BorderThickness="0" Cursor="Hand"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>
