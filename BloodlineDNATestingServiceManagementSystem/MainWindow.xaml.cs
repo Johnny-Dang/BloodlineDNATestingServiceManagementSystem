@@ -59,6 +59,12 @@ namespace BloodlineDNATestingServiceManagementSystem
                 tabItem.Content = new ConsultationControl();
                 MainTabControl.SelectedItem = tabItem;
             }
+            else if (button.Name == "btnSampleAndParticipant")
+            {
+                TabItem tabItem = FindOrCreateTab("tabSampleAndParticipant", "Quản lý Mẫu vật & Người tham gia");
+                tabItem.Content = new SampleAndParticipantManagementControl();
+                MainTabControl.SelectedItem = tabItem;
+            }
         }
 
         private TabItem FindOrCreateTab(string tabName, string header)
