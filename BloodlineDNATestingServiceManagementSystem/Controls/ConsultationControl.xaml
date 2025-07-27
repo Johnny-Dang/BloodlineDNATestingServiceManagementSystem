@@ -13,10 +13,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <!-- Tiêu đề -->
         <TextBlock Grid.Row="0" Text="Quản lý tư vấn" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
         
-        <!-- Tìm kiếm -->
         <Grid Grid.Row="1" Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -28,7 +26,6 @@
             <Button Grid.Column="2" x:Name="btnSearch" Content="Tìm kiếm" Width="100" Height="35" Click="btnSearch_Click"/>
         </Grid>
         
-        <!-- DataGrid -->
         <DataGrid Grid.Row="2" x:Name="dgConsultations" AutoGenerateColumns="False" Margin="0,0,0,10"
                   SelectionMode="Single" IsReadOnly="True" SelectionChanged="dgConsultations_SelectionChanged">
             <DataGrid.Columns>
@@ -43,14 +40,12 @@
             </DataGrid.Columns>
         </DataGrid>
         
-        <!-- Form nhập thông tin -->
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <!-- Cột bên trái -->
             <StackPanel Grid.Column="0" Margin="0,0,5,0">
                 <Label Content="Thông tin tư vấn" FontWeight="Bold"/>
                 
@@ -67,30 +62,24 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     
-                    <!-- Hàng 1 -->
                     <Label Grid.Row="0" Grid.Column="0" Content="Tên:"/>
                     <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Margin="0,2"/>
                     
-                    <!-- Hàng 2 -->
                     <Label Grid.Row="1" Grid.Column="0" Content="SĐT:"/>
                     <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtPhone" Margin="0,2"/>
                     
-                    <!-- Hàng 3 -->
                     <Label Grid.Row="2" Grid.Column="0" Content="Loại tư vấn:"/>
                     <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtType" Margin="0,2"/>
                     
-                    <!-- Hàng 4 -->
                     <Label Grid.Row="3" Grid.Column="0" Content="Ngày tư vấn:"/>
                     <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtConsultDate" Margin="0,2"/>
                     
-                    <!-- Hàng 5 -->
                     <Label Grid.Row="4" Grid.Column="0" Content="Nội dung:"/>
                     <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtContent" 
                              Height="60" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,2"/>
                 </Grid>
             </StackPanel>
             
-            <!-- Cột bên phải -->
             <StackPanel Grid.Column="1" Margin="5,0,0,0">
                 <Label Content="Phản hồi" FontWeight="Bold"/>
                 
@@ -105,16 +94,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     
-                    <!-- Hàng 1 -->
                     <Label Grid.Row="0" Grid.Column="0" Content="Trạng thái:"/>
                     <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cbxStatus" Margin="0,2"/>
                     
-                    <!-- Hàng 2 -->
                     <Label Grid.Row="1" Grid.Column="0" Content="Ghi chú:"/>
                     <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtNotes" 
                              Height="60" TextWrapping="Wrap" AcceptsReturn="True" Margin="0,2"/>
                     
-                    <!-- Hàng 3 - Các nút chức năng -->
                     <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
                         <Button x:Name="btnCreate" Content="Add" Width="80" Margin="0,0,5,0" Click="btnCreate_Click"/>
                         <Button x:Name="btnUpdate" Content="Update" Width="80" Margin="0,0,5,0" Click="btnUpdate_Click"/>
