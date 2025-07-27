@@ -181,5 +181,12 @@ namespace BloodlineDNATestingServiceManagementSystem
             string searchText = txtSearch.Text;
             dgFeedback.ItemsSource = _feedbackService.Search(searchText);
         }
+
+        private void btnBackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
