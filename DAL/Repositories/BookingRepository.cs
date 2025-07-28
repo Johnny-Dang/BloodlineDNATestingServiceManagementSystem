@@ -14,6 +14,11 @@ namespace DAL.Repositories
         {
             _context = new DnatestingServiceContext();  
         }
+
+        public BookingRepository(DnatestingServiceContext context)
+        {
+            _context = context;
+        }
         
         public List<Booking> GetAll()
         {

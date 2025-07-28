@@ -33,6 +33,28 @@ namespace BloodlineDNATestingServiceManagementSystem
             TabItem bookingTab = MainTabControl.Items[0] as TabItem;
             bookingTab.Content = new BookingControl();
             MainTabControl.SelectedIndex = 0;
+
+            // Khởi tạo context và service dùng chung
+            var context = new DAL.Entities.DnatestingServiceContext();
+            var serviceRepo = new DAL.Repositories.ServiceRepository(context);
+            var surchargeRepo = new DAL.Repositories.SurchargePriceRepository(context);
+            var serviceAndSurchargeService = new BLL.Services.ServiceAndSurchargeService(serviceRepo, surchargeRepo);
+            var bookingRepo = new DAL.Repositories.BookingRepository(context);
+            var blogPostRepo = new DAL.Repositories.BlogPostRepository(context);
+            var customerDashboardService = new BLL.Services.CustomerDashboardService(bookingRepo, blogPostRepo);
+
+            // Phân quyền hiển thị tab
+            string role = user.Role.RoleName.ToUpper();
+            if (role == "ADMIN" || role == "MANAGER" || role == "STAFF" || role == "CUSTOMER")
+            {
+                tabServiceAndSurcharge.Visibility = Visibility.Visible;
+                tabServiceAndSurcharge.Content = new Controls.ServiceAndSurchargeManagementControl(serviceAndSurchargeService, role);
+            }
+            if (role == "CUSTOMER")
+            {
+                tabCustomerDashboard.Visibility = Visibility.Visible;
+                tabCustomerDashboard.Content = new Controls.CustomerDashboardControl(customerDashboardService, user.UserId);
+            }
         }
 
         private void SidebarButton_Click(object sender, RoutedEventArgs e)
